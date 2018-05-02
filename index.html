@@ -54,7 +54,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.me/b">how to create a site</a></section><section class="mbr-section content5 cid-qQrOMwqspu mbr-parallax-background" id="content5-7">
+<section class="engine"><a href="https://mobirise.me/i">free site creation software</a></section><section class="mbr-section content5 cid-qQrOMwqspu mbr-parallax-background" id="content5-7">
 
     
 
@@ -89,6 +89,7 @@
                 val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[A-Z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) ||
                 val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1 && val.search(/[0-9]/) ||
                 val.length >= tamanho && val.search(/[@!#$%&*+=?|-]/) != -1 && val.search(/[A-Z]/) != -1 && val.search(/[0-9]/)) {
+                var forca = "Forte";
                 document.getElementById('mensagem').innerHTML = "Parabéns, sua senha é forte";
                 document.getElementById('d_baixa').style.background = 'green';
                 document.getElementById('d_media').style.background = 'green';
@@ -101,12 +102,14 @@
                     val.length >= tamanho && val.search(/[A-Z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1 ||
                     val.length >= tamanho && val.search(/[0-9]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1) {
 
+                    var forca = "Media";
                     document.getElementById('mensagem').innerHTML = "Parabéns, sua senha é média";
                     document.getElementById('d_baixa').style.background = 'yellow';
                     document.getElementById('d_media').style.background = 'yellow';
                     document.getElementById('d_alta').style.background = 'white';
                 } else {
                     if (val.length >= tamanho) {
+                        var forca = "Fraca";
                         document.getElementById('mensagem').innerHTML = "Desculpa, sua senha é fraca";
                         document.getElementById('d_baixa').style.background = 'red';
                         document.getElementById('d_media').style.background = 'white';
@@ -116,10 +119,17 @@
             }
             if (localStorage.Quantidade) {
  			   localStorage.Quantidade = Number(localStorage.Quantidade) + 1;
-               localStorage.setItem(val, val);
+                if (forca == "Fraca"){localStorage.Fraca = Number(localStorage.Fraca) + 1;}
+                if (forca == "Media"){localStorage.Media = Number(localStorage.Media) + 1;}
+                if (forca == "Forte"){localStorage.Forte = Number(localStorage.Forte) + 1;}
 			} else {
     			localStorage.Quantidade = 1;
-                localStorage.setItem(val, val);
+                localStorage.Fraca = 0;
+                localStorage.Media = 0;
+                localStorage.Forte = 0;
+                if (forca == "Fraca"){localStorage.Fraca = Number(localStorage.Fraca) + 1;}
+                if (forca == "Media"){localStorage.Media = Number(localStorage.Media) + 1;}
+                if (forca == "Forte"){localStorage.Forte = Number(localStorage.Forte) + 1;}
 			}
        }
     </script>
